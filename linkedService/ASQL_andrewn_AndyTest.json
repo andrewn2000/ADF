@@ -1,0 +1,12 @@
+{
+	"name": "ASQL_andrewn_AndyTest",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Connection to the AndyTest database on the server andyserver2020.database.windows.net",
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=andyserver2020.database.windows.net;Initial Catalog=AndyTest"
+		}
+	}
+}

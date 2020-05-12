@@ -1,0 +1,12 @@
+{
+	"name": "ADLS_andrewnadls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Connection to Andy's Azure Data Lake Strage account (andrewnadls)",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://andrewnadls.dfs.core.windows.net"
+		}
+	}
+}

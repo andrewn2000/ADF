@@ -1,0 +1,7 @@
+{
+	"name": "AndyDesktopIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Self-hosted integration runtime running on Andy's desktop"
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"name": "test_ADLS_to_SQL_AndyDesktop",
+	"properties": {
+		"description": "this was a test, but I got it working.  so keep as an example of how to call a stored proc from the connections",
+		"activities": [
+			{
+				"name": "Copy ADLS to SQL",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFileName": "in*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink",
+						"sqlWriterStoredProcedureName": "[lego].[usp_upsert_inventory_sets]",
+						"sqlWriterTableType": "dbo.inventories",
+						"storedProcedureTableTypeParameterName": "inventory"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "ADLS_inventories_CSV",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQL_Lego_Themes",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

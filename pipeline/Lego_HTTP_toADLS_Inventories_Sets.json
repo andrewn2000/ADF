@@ -1,0 +1,105 @@
+{
+	"name": "Lego_HTTP_toADLS_Inventories_Sets",
+	"properties": {
+		"description": "Copy inventory_sets.csv.gz from Rebrickable to Azure Data Lake Storage",
+		"activities": [
+			{
+				"name": "Copy_Inventory_Sets",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "BLOB_andrewnblob",
+							"type": "LinkedServiceReference"
+						},
+						"path": "lego/errors/inventory_sets"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "inventory_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "inventory_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "set_num",
+									"type": "String"
+								},
+								"sink": {
+									"name": "set_num",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "quantity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "quantity",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "HTTP_inventory_sets",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ADLS_inventory_sets",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Lego"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,39 @@
+{
+	"name": "ADLS_inventory_sets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_andrewnadls",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Lego/Destinations"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "lego"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "version",
+				"type": "String"
+			},
+			{
+				"name": "set_num",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

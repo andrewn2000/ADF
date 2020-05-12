@@ -1,0 +1,17 @@
+{
+	"name": "SQL_andydesktop",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Connection to the AndyDesktop server",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=localhost;initial catalog=Entertainment;user id=azure",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyOTQyZWI5My1jOGZjLTQ4NjAtYjk2Mi1iMjExMDEwODg0ZDYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "AndyDesktopIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
