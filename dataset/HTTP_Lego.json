@@ -1,16 +1,26 @@
 {
-	"name": "HTTP_Lego_Sets",
+	"name": "HTTP_Lego",
 	"properties": {
+		"description": "Dynamic dataset",
 		"linkedServiceName": {
 			"referenceName": "HTTP_Lego",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string",
+				"defaultValue": "FileName"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "sets.csv"
+				"relativeUrl": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
