@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_rs7",
+	"name": "ADLS_lego_themes",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_andrewnadls",
