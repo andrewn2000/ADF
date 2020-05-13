@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_ssu",
+	"name": "HTTP_themes_csv_gz2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "HTTP_Lego",
