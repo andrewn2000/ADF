@@ -70,7 +70,7 @@
 			},
 			{
 				"name": "Set List of Files",
-				"type": "AppendVariable",
+				"type": "SetVariable",
 				"dependsOn": [
 					{
 						"activity": "If Load All files",
@@ -79,7 +79,14 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ListOfFiles",
+					"value": {
+						"value": "Load @{length(variables('Files'))} files: @{join(variables('Files'),', ')}",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
