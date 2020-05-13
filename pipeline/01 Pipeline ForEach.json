@@ -67,6 +67,19 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Set List of Files",
+				"type": "AppendVariable",
+				"dependsOn": [
+					{
+						"activity": "If Load All files",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"parameters": {
