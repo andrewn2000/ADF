@@ -7,7 +7,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DestinationDataset_2_Themes",
+						"referenceName": "ADSL_Dynamic",
 						"type": "DatasetReference"
 					},
 					"name": "ADSLLogoThemes"

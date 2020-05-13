@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_2_Themes",
+	"name": "ADSL_Dynamic",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_andrewnadls",
