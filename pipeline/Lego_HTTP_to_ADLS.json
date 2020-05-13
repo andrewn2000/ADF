@@ -1,5 +1,5 @@
 {
-	"name": "Lego_HTTP_to_ADLS_Themes",
+	"name": "Lego_HTTP_to_ADLS",
 	"properties": {
 		"activities": [
 			{
@@ -54,7 +54,10 @@
 							"referenceName": "BLOB_andrewnblob",
 							"type": "LinkedServiceReference"
 						},
-						"path": "lego/errors/@{pipeline().parameters.FileName}.csv"
+						"path": {
+							"value": "lego/errors/@{pipeline().parameters.FileName}.csv",
+							"type": "Expression"
+						}
 					},
 					"dataIntegrationUnits": 2
 				},
