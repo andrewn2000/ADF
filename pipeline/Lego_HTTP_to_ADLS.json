@@ -36,6 +36,17 @@
 							"skipLineCount": 0
 						}
 					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
 					"redirectIncompatibleRowSettings": {
@@ -53,6 +64,18 @@
 				"inputs": [
 					{
 						"referenceName": "HTTP_Lego",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ADSL_Dynamic",
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
